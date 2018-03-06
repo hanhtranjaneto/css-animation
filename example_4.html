@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS3 Animation - Example 4</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <style>
+        .square {
+            width: 50px;
+            height: 50px;
+            animation-fill-mode: both;
+        }
+
+        .square-1 {
+            background-color: #2c3e50;
+        }
+
+        .square-2 {
+            background-color: #8e44ad;
+        }
+
+        .square-3 {
+            background-color: #e74c3c;
+        }
+
+        .square-4 {
+            background-color: #f39c12;
+        }
+
+        .animate-1 {
+            animation-name: anim-1;
+            animation-duration: 2s;
+        }
+
+        .animate-2 {
+            animation-name: anim-1;
+            animation-duration: 2s;
+            animation-timing-function: ease;
+        }
+
+        .animate-3 {
+            animation-name: anim-1;
+            animation-duration: 2s;
+            animation-timing-function: ease-in;
+        }
+
+        .animate-4 {
+            animation-name: anim-1;
+            animation-duration: 2s;
+            animation-timing-function: ease-out;
+        }
+
+        .animate-5 {
+            animation-name: anim-1;
+            animation-duration: 2s;
+            animation-timing-function: ease-in-out;
+        }
+
+        .animate-6 {
+            animation-name: anim-1;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+        }
+
+        .animate-7 {
+            animation-name: anim-1;
+            animation-duration: 2s;
+            animation-timing-function: steps(5, start);
+        }
+
+        .animate-8 {
+            animation-name: anim-1;
+            animation-duration: 2s;
+            animation-timing-function: steps(5, end);
+        }
+
+        .animate-9 {
+            animation-name: anim-1;
+            animation-duration: 2s;
+            animation-timing-function: step-start;
+        }
+
+        .animate-10 {
+            animation-name: anim-1;
+            animation-duration: 2s;
+            animation-timing-function: step-end;
+        }
+
+        .animate-11 {
+            animation-name: anim-1;
+            animation-duration: 2s;
+            animation-timing-function: cubic-bezier(0, 1.1, 0.8, 4);
+        }
+
+        .square-5 {
+            background-color: #1abc9c;
+        }
+
+        .square-6 {
+            background-color: #2ecc71;
+        }
+
+        .square-7 {
+            background-color: #3498db;
+        }
+
+        .square-8 {
+            background-color: #f60;
+        }
+
+        .square-9 {
+            background-color: #2c3e50;
+        }
+
+        .square-10 {
+            background-color: #00c;
+        }
+
+        .square-11 {
+            background-color: #c00;
+        }
+
+        @keyframes anim-1 {
+            to {
+                transform: rotate(300deg);
+            }
+        }
+    </style>
+    <p>animation-timing-function: ease;</p>
+    <div class="square-2 square" data-animation-name="animate-2"></div>
+    <p>animation-timing-function: ease-in;</p>
+    <div class="square-3 square" data-animation-name="animate-3"></div>
+    <p>animation-timing-function: ease-out;</p>
+    <div class="square-4 square" data-animation-name="animate-4"></div>
+    <p>animation-timing-function: ease-in-out;</p>
+    <div class="square-5 square" data-animation-name="animate-5"></div>
+    <p>animation-timing-function: linear;</p>
+    <div class="square-6 square" data-animation-name="animate-6"></div>
+    <p>animation-timing-function: steps(5, start);</p>
+    <div class="square-7 square" data-animation-name="animate-7"></div>
+    <p>animation-timing-function: steps(5, end);</p>
+    <div class="square-8 square" data-animation-name="animate-8"></div>
+    <p>animation-timing-function: step-start;</p>
+    <div class="square-9 square" data-animation-name="animate-9"></div>
+    <p>animation-timing-function: step-end;</p>
+    <div class="square-10 square" data-animation-name="animate-10"></div>
+    <p>animation-timing-function: cubic-bezier(0, 1.1, 0.8, 4);</p>
+    <div class="square-11 square" data-animation-name="animate-11"></div>
+    <script>
+        $(document).ready(function () {
+            $(".square").click(function (event) {
+                var element = $(event.currentTarget)
+                    , elemData = element.attr("data-animation-name");
+
+                element.toggleClass(elemData, false);
+                setTimeout(function () {
+                    element.toggleClass(elemData, true);
+                }, 20);
+
+            })
+        });
+    </script>
+</body>
+
+</html>

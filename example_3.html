@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS3 Animation - Example 3</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <style>
+        .square {
+            width: 50px;
+            height: 50px;
+        }
+
+        .square-1 {
+            background-color: #2c3e50;
+        }
+
+        .square-2 {
+            background-color: #8e44ad;
+        }
+
+        .square-3 {
+            background-color: #e74c3c;
+        }
+
+        .square-4 {
+            background-color: #f39c12;
+        }
+
+        .animate-1 {
+            animation-name: anim-1;
+            animation-duration: 2s;
+            animation-iteration-count: 10;
+            animation-direction: normal;
+        }
+
+        .animate-2 {
+            animation-name: anim-1;
+            animation-duration: 2s;
+            animation-iteration-count: 10;
+            animation-direction: reverse;
+        }
+
+        .animate-3 {
+            animation-name: anim-1;
+            animation-duration: 2s;
+            animation-iteration-count: 10;
+            animation-direction: alternate;
+        }
+
+        .animate-4 {
+            animation-name: anim-1;
+            animation-duration: 2s;
+            animation-iteration-count: 10;
+            animation-direction: alternate-reverse;
+        }
+
+        @keyframes anim-1 {
+            to {
+                transform: rotate(270deg);
+            }
+        }
+    </style>
+    <p>animation-direction: normal;</p>
+    <div class="square-1 square" data-animation-name="animate-1"></div>
+    <p>animation-direction: reverse;</p>
+    <div class="square-2 square" data-animation-name="animate-2"></div>
+    <p>animation-direction: alternate;</p>
+    <div class="square-3 square" data-animation-name="animate-3"></div>
+    <p>animation-direction: alternate-reverse;</p>
+    <div class="square-4 square" data-animation-name="animate-4"></div>
+    <script>
+        $(document).ready(function () {
+            $(".square").click(function () {
+                var elemData = $(this).attr("data-animation-name")
+                $(this).toggleClass(elemData)
+            })
+        });
+    </script>
+</body>
+
+</html>

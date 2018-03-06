@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS3 Animation - Example 1</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <style>
+        .square {
+            width: 50px;
+            height: 50px;
+        }
+
+        .square-1 {
+            background-color: #d35400;
+        }
+
+        .square-2 {
+            background-color: #3498db;
+        }
+
+        .animate-1 {
+            animation-name: anim-without-start;
+            animation-duration: 3s;
+        }
+
+        .animate-2 {
+            animation-name: anim-without-end;
+            animation-duration: 3s;
+        }
+
+        button {
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+
+        @keyframes anim-without-start {
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes anim-without-end {
+            50% {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <p>Starting frame is not set:</p>
+    <div class="square-1 square" data-animation-name="animate-1"></div>
+    <p>Ending frame is not set:</p>
+    <div class="square-2 square" data-animation-name="animate-2"></div>
+    <button>Comapre animations</button>
+
+    <script>
+        $(document).ready(function () {
+            $("button").click(function (event) {
+                $(".square").trigger('click');
+            });
+
+            $(".square").click(function (event) {
+                var element = $(event.currentTarget);
+                element.toggleClass(element.attr("data-animation-name"), false);
+                setTimeout(function () {
+                    element.toggleClass(element.attr("data-animation-name"), true);
+                }, 20);
+            });
+        });
+    </script>
+</body>
+
+</html>
